@@ -4,9 +4,9 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>3.8</ProductVersion>
-    <ProjectGuid>e372d7c9-d867-401b-a492-ae60bcc4ca56</ProjectGuid>
+    <ProjectGuid>a32e6e40-d99c-4174-b264-83787fad9eec</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>HelloWoldInstaller</OutputName>
+    <OutputName>HelloWorldInstaller</OutputName>
     <OutputType>Package</OutputType>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
