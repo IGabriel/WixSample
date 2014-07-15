@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-	<Product Id="*" Name="HelloWorldInstaller" Language="1033" Version="1.0.0.0" Manufacturer="" UpgradeCode="7bfca941-7a3a-4987-aaee-cba952487eff">
+	<Product Id="*" Name="HelloWorldInstaller" Language="1033" Version="1.0.0.0" Manufacturer="Company name" UpgradeCode="7bfca941-7a3a-4987-aaee-cba952487eff">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-		<MediaTemplate />
+		<Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
 
 		<Feature Id="ProductFeature" Title="HelloWorldInstaller" Level="1">
 			<ComponentGroupRef Id="ProductComponents" />
@@ -21,10 +21,9 @@
 
 	<Fragment>
 		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
-			<!-- <Component Id="ProductComponent"> -->
-				<!-- TODO: Insert files, registry keys, and other resources here. -->
-			<!-- </Component> -->
+      <Component Id="HelloWorld.exe" Guid="42F0F0ED-CC76-474E-95DD-71B780BDF4D2">
+        <File Id="HelloWorld.exe" Source="$(var.HelloWorld.TargetDir)HelloWorld.exe" />
+      </Component>
 		</ComponentGroup>
 	</Fragment>
 </Wix>
