@@ -24,6 +24,22 @@
     <Compile Include="Product.wxs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CPPConsole\CPPConsole.vcxproj">
+      <Name>CPPConsole</Name>
+      <Project>{f7190278-5430-4a74-960a-7fc065dc9c72}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\CSharpForm\CSharpForm.csproj">
+      <Name>CSharpForm</Name>
+      <Project>{daf4aed9-d7a1-47bf-981c-c8f607e17b0d}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
     <ProjectReference Include="..\HelloWorld\HelloWorld.csproj">
       <Name>HelloWorld</Name>
       <Project>{09955e81-dbe1-4b42-9038-9e1c72d65086}</Project>
@@ -32,6 +48,15 @@
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
       <RefTargetDir>INSTALLFOLDER</RefTargetDir>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixUIExtension">
+      <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
+      <Name>WixUIExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LicenseAgreement.rtf" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <!--

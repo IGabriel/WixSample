@@ -6,24 +6,54 @@
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
 		<Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
 
-		<Feature Id="ProductFeature" Title="HelloWorldInstaller" Level="1">
-			<ComponentGroupRef Id="ProductComponents" />
-		</Feature>
+		<Feature Id="ProductFeature" Title="TestInstaller" Level="1" ConfigurableDirectory="INSTALLFOLDER" Display="expand">
+      <Feature Id="HelloWorldFeature" Title="Hello World" Level="1">
+        <ComponentGroupRef Id="HelloWroldComponents" />
+      </Feature>
+      <Feature Id="CPPConsoleFeature" Title="CPP consoloe" Level="1">
+        <ComponentGroupRef Id="CPPConsoleComponents" />
+      </Feature>
+      <Feature Id="CSharpFormFeature" Title="C# form" Level="1">
+        <ComponentGroupRef Id="CSharpFormComponents" />
+      </Feature>
+    </Feature>
+
+    <UIRef Id="WixUI_Mondo"/>
+    <WixVariable Id="WixUILicenseRtf" Value="LicenseAgreement.rtf" />
+
+    <!-- WixUI_Minimal
+    <UIRef Id="WixUI_Minimal"/>
+    -->
+
+    <!-- WixUI_Minimal
+    <UIRef Id="WixUI_InstallDir"/>
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    -->
 	</Product>
 
 	<Fragment>
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="ProgramFilesFolder">
-				<Directory Id="INSTALLFOLDER" Name="HelloWorldInstaller" />
+				<Directory Id="INSTALLFOLDER" Name="TestInstaller" />
 			</Directory>
 		</Directory>
 	</Fragment>
 
 	<Fragment>
-		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+		<ComponentGroup Id="HelloWroldComponents" Directory="INSTALLFOLDER">
       <Component Id="HelloWorld.exe" Guid="42F0F0ED-CC76-474E-95DD-71B780BDF4D2">
         <File Id="HelloWorld.exe" Source="$(var.HelloWorld.TargetDir)HelloWorld.exe" />
       </Component>
 		</ComponentGroup>
-	</Fragment>
+    <ComponentGroup Id="CPPConsoleComponents" Directory="INSTALLFOLDER">
+      <Component Id="CPPConsole.exe" Guid="36F4C572-A95E-436D-8A4B-0F08B9AADF6D">
+        <File Id="CPPConsole.exe" Source="$(var.CPPConsole.TargetDir)CPPConsole.exe" />
+      </Component>
+    </ComponentGroup>
+    <ComponentGroup Id="CSharpFormComponents" Directory="INSTALLFOLDER">
+      <Component Id="CSharpForm.exe" Guid="85A7912E-CE9D-4AE1-8AB2-C401779C6EB5">
+        <File Id="CSharpForm.exe" Source="$(var.CSharpForm.TargetDir)CSharpForm.exe" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
 </Wix>
